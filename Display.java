@@ -9,14 +9,13 @@ public class Display {
   }
   
   public void write(String words) {
-    TypingBot tb = new TypingBot(words, this.delay);
-    tb.isDaemon();
-    tb.start();
-    Thread t = Thread.currentThread();
-    try {
-      t.join(this.delay);
-    } catch (Exception E) {
-      System.err.println(E);
+    for(char c: words.toCharArray()) { 
+      System.out.print(c);
+      try {
+        Thread.sleep(delay);
+      } catch (InterruptedException ex) {
+        Thread.currentThread().interrupt();
+      }
     }
   }
 
@@ -62,27 +61,4 @@ public class Display {
     }
     System.out.println("   ...........");
   }
-}
-
-class TypingBot extends Thread {
-    String words;
-    int delay;
-  
-    public TypingBot(String words, int delay){
-        this.words = words;
-        this.delay = delay;
-    }
-
-    @Override
-    public void run(){
-        for (int i = 0 ; i < this.words.length() ; i++){
-            System.out.print(this.words.charAt(i));
-            try{
-                Thread.sleep(this.delay);
-            }
-            catch (Exception e){
-                System.out.println(e);
-            }
-        }
-    }
 }

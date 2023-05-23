@@ -2,5 +2,11 @@ public class Input {
     public Input() {
         
     }
-    public 
+    public String scan(String question) {
+        return question;
+    }
+
+    public String multichose(String question, String[] options) {
+        return question;
+    }
 }
