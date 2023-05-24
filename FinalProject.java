@@ -7,6 +7,22 @@ public class FinalProject {
 
         String name = in.scan("What is your name?");
 
+        /*
+         *  What is your name?
+         *  Answer: Rohan
+         */
+
+        /*
+         * This is your question: 
+         * (1) Option A (returned value -> "Option A")
+         * (2) Option B
+         * (3) Option C
+         * 
+         * Answer: (1)
+         */
+
+        String answer = in.multichose("What option do you want", {"a", "c", "d"})
+
         Display d = new Display(delay);
         Player p = new Player(name);
 
