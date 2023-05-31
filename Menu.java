@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Random;
 public class Menu {
 
     ArrayList<Food> menu = new ArrayList<Food>(); 
+    Random rand = new Random();
     public Menu(){
         menu.add(new Food("rotten apple",0,0,3));
         menu.add(new Food("ceasar salad",2,0,5));
@@ -22,5 +24,38 @@ public class Menu {
         
         menu.add(new Food("fried chicken",8,2,3));
     }
-}
 
+    public Food choose(){
+        int num = rand.nextInt(menu.size());
+        Food item = menu.get(num);
+        return(item);
+        
+    }
+
+    public void setMenu(int amt){
+        ArrayList<Integer> chosenNum = new ArrayList<Integer>();
+        
+        for (int i = 0; i<amt;){
+            int num = rand.nextInt(menu.size());
+            if (!chosenNum.contains(num)){
+            chosenNum.add(num);
+            Food item = menu.get(num);
+            System.out.println(item.foodStats());
+            i++;
+            }
+        }
+    }
+    public Food getItem(String foodName){
+        Food correctFood = new Food("init",0,0,0);
+        for (int i = 0; i<menu.size(); i++){
+            Food food = menu.get(i);
+            String name = food.getFoodName();
+            if(name.equals(foodName)){
+                correctFood = menu.get(i);
+            }
+        
+        }
+        return(correctFood);
+    }
+
+}

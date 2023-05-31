@@ -34,20 +34,44 @@ public class Competitors {
   }
 
   public ArrayList<Competitor> generate() {
-    Competitor result;
     Random rand = new Random(); 
     ArrayList<Competitor> lcs= new ArrayList<Competitor>();
-    result = this.cs.get(rand.nextInt(this.cs.size()));
-    lcs.add(result);
-    Competitor next;
-    while(lcs.size() < 3) {
-      next = this.cs.get(rand.nextInt(this.cs.size()));
-      lcs.add(next);
-      Set<Competitor> css = new HashSet<>();
+    
+    /*result = this.cs.get(rand.nextInt(this.cs.size()));
+    lcs.add(result);*/
+    
+    
+    ArrayList<Integer> chosenNum = new ArrayList<Integer>();
+        
+        for (int i = 0; i<3;){
+            int num = rand.nextInt(cs.size());
+            if (!chosenNum.contains(num)){
+            chosenNum.add(num);
+            Competitor item = cs.get(num);
+            System.out.println(item.name());
+            i++;
+            }
+      /*Set<Competitor> css = new HashSet<>();
       css = this.cs.stream().collect(Collectors.toSet());
       lcs.clear();
-      lcs.addAll(css);
+      lcs.addAll(css);*/
     }
-    return lcs;
+  
+    return(lcs);
   }
+
+    public Competitor getComp(String comp){
+      Competitor correctComp = new Competitor("",0);
+      for (int i = 0; i<cs.size(); i++){
+          Competitor comp1 = cs.get(i);
+          String name = comp1.name();
+          if(name.equals(comp)){
+              correctComp = cs.get(i);
+          }
+        }
+      
+      return(correctComp);
+    }
+    
+
 }

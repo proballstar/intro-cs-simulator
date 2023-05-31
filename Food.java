@@ -22,7 +22,11 @@ public class Food {
     public int getCost(){
         return cost;
     }
+    public String foodStats(){
+        return("Item:"+foodName+ "\t\tProtein:"+protein+"\tEnergy:"+energy+"\tCost:$"+cost);
+    }
+    public void updateStats(){
+        
+    }
 }
-
-
 

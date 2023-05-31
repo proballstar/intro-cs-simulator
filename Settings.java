@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Settings {
-    private Map settings;
+    private Map<String, String> settings;
 
     public Settings() {
         settings = new HashMap<String, String>();
@@ -12,6 +12,7 @@ public class Settings {
     }
 
     public String get_setting(String key) {
-        String res =  key.getClass()
+        String res =  settings.get(key);
+        return res;
     }
 }

@@ -3,9 +3,10 @@ import java.util.*;
 public class Display {
 
   private int delay;
-
+  
   public Display(int delay) {
     this.delay = delay;
+    
   }
   
   public void write(String words) {
@@ -18,7 +19,8 @@ public class Display {
       }
     }
   }
-
+  
+  
   public void stats(Energy e, Money d, Mass m) {
     int energy = e.get();
     int money = d.get();
