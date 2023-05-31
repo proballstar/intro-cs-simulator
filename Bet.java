@@ -4,6 +4,10 @@ public class Bet {
     public Bet(int amt){
       this.amt = new Money(amt);
     }
+
+    public Money get_money() {
+      return this.amt;
+    }
   
     public void end(Competitor c, Player p, String w) {
       if(w.equals("C")) {

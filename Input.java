@@ -9,9 +9,10 @@ public class Input {
 
     public String ask(String question) {
         Display d = new Display(100);
-        d.write(question);
-        System.out.println();
-        String response = scan.nextLine();
+        d.write(question + "\n");
+        d.write("Enter your response: ");
+        String response = this.scan.next();
+        d.write(String.format("You chose %s!", response));
         return(response);
 
     }

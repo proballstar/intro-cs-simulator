@@ -30,13 +30,13 @@ public class FinalProject {
             p.eat(chosenFood);
             p.stats();
 
-            d.write("now it is time to go to the gym! What wokrout do you want to do?");
-            String type = scan.nextLine();
+            d.write("now it is time to go to the gym! What workout do you want to do?");
+            String[] wopts = {"Bench Press (BP)", "Overhead Press (OP)", "Dumbell Curls (DC)"};
+            String type = input.multichose("You can choose between the following", wopts);
             Workout w = new Workout(type, p);
-            d.write("how many reps?");
-            int reps = scan.nextInt();
+            String reps_str = input.ask("How many reps");
+            int reps = Integer.parseInt(reps_str);
             Map<String, ArrayList<String>> values = w.rep(p, reps);
-            
             
             p.stats();
 
@@ -54,29 +54,9 @@ public class FinalProject {
             comp.generate();
             String response1 = input.ask("who would you like to challenge?");
             Competitor chosenComp = comp.getComp(response1);
+            Bet b = new Bet(100)
             Boolean bool = chosenComp.battle(p);
-            p.updateMoney(bool);
-            
-
-
-
-
-
-            
-
-
-
-            
-            
-
-
-            
-            
-            
-
-
-
-
+            p.updateMoney(bool, b);
         }
     }
 }

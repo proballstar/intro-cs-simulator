@@ -45,10 +45,9 @@ public class Player {
     amt.spend(hours*2);
   }
 
-  public void updateMoney(Boolean result){
+  public void updateMoney(Boolean result, Bet b){
     if (result){
-      this.amt.earn(10);
-
+      this.amt.earn(b.get_money().get());
     }
     else{
       this.amt.spend(10);

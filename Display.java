@@ -20,7 +20,6 @@ public class Display {
     }
   }
   
-  
   public void stats(Energy e, Money d, Mass m) {
     int energy = e.get();
     int money = d.get();
