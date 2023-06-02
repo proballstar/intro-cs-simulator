@@ -25,6 +25,7 @@ public class Input {
         }
         int choice = scan.nextInt();
         System.out.println("you chose "+options[choice-1]+"!");
+        System.out.print("\n");
         return(options[choice-1]);
         
         

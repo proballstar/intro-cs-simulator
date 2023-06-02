@@ -6,7 +6,13 @@ public class Protein {
     }
   
     public void use(int u) {
-      this.amt = this.amt - u;
+      int after_res = this.amt - u;
+
+      if(after_res >= 0) {
+        this.amt = after_res;
+      } else {
+        this.amt = 0;
+      }
     }
   
     public void eat(int e) {
